@@ -1,13 +1,13 @@
 const { resolve } = require('path')
 const { } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const outputPath = '.dist'
 
 let config = {
-  mode: 'development',
   entry: {
     'scripts/main.bundle': resolve('./src/main.js')
   },
@@ -24,6 +24,21 @@ let config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'vue-style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
       }
     ]
   },
@@ -33,8 +48,12 @@ let config = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
-  ],
-  devServer: {
+  ]
+}
+
+if (process.env.NODE_ENV === 'development') {
+  config.devtool = 'eval-source-map'
+  config.devServer = {
     port: 3000,
     open: true,
     watchOptions: {
@@ -42,6 +61,15 @@ let config = {
       poll: true,
     },
   }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  config.devtool = 'source-map'
+  config.output.filename = '[name].[hash].js'
+  config.plugins = [
+    ...config.plugins,
+    new UglifyJsPlugin({ sourceMap: true }),
+  ]
 }
 
 module.exports = config;
