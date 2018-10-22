@@ -1,0 +1,14 @@
+{
+  "boards": [
+    {
+      "name": "Icebox",
+      "tasks": [
+        {
+          "companyName": "Winc",
+          "title": "Scrum Master",
+          "dates": "July -2016 - Oct 2017"
+        }
+      ]
+    }
+  ]
+}

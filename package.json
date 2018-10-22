@@ -1,0 +1,31 @@
+{
+  "name": "nisenkier.com",
+  "version": "1.0.0",
+  "description": "Nisenkier.com scrum master portfolio",
+  "main": "index.js",
+  "repository": "git@github.com:Nisenkier/nisenkier.com.git",
+  "author": "Daniel Romero <romerodaniel.k90@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "css-loader": "^1.0.0",
+    "vue": "^2.5.17",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "vue-loader": "^15.4.2",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
