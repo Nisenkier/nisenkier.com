@@ -1,7 +1,27 @@
 {
   "boards": [
     {
-      "name": "Icebox",
+      "name": "New",
+      "tasks": [
+        {
+          "companyName": "Winc",
+          "title": "Scrum Master",
+          "dates": "July -2016 - Oct 2017"
+        }
+      ]
+    },
+    {
+      "name": "In Progress",
+      "tasks": [
+        {
+          "companyName": "Winc",
+          "title": "Scrum Master",
+          "dates": "July -2016 - Oct 2017"
+        }
+      ]
+    },
+    {
+      "name": "Done",
       "tasks": [
         {
           "companyName": "Winc",
